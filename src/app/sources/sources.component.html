@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sources</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        var form = new FormData();
+        form.append("API_KEY", "Xb7TuhRxbz4TCaq9");
+
+        var settings = {
+            "url": "https://api.bullets.app/admin/sources/list?perpage=50&page=1",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlcwS1JINjRTSWJPUWJhN2g0LUtmMyJ9.eyJodHRwczovL25ld3NpbmJ1bGxldHMuYXBwL3V1aWQiOiI1NzU1MjczNS0zNzAwLTQ2YjYtOTFlYy0xNWQxOGQxMThkZmMiLCJodHRwczovL25ld3NpbmJ1bGxldHMuYXBwL2NyZWF0ZWRfYXQiOiIyMDIxLTAyLTAyVDA5OjAzOjQ1LjIyMVoiLCJodHRwczovL25ld3NpbmJ1bGxldHMuYXBwL2hhc1Bhc3N3b3JkIjp0cnVlLCJodHRwczovL25ld3NpbmJ1bGxldHMuYXBwL2VtYWlsIjoic2hyZXllc2hAbmV3c2luYnVsbGV0cy5hcHAiLCJpc3MiOiJodHRwczovL25pYi51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjAxOTE1NzE2ZTUxOWQwMDY5MzI5NWRmIiwiYXVkIjpbImh0dHBzOi8vYXBpLm5ld3NpbmJ1bGxldHMuYXBwIiwiaHR0cHM6Ly9uaWIudXMuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTY1NzYwMzE3MCwiZXhwIjoxNjYwMTk1MTcwLCJhenAiOiJYa1NZWG9QMHM1cjZtRFdYOG15eTBheDJDQjBySzQ5eCIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJwZXJtaXNzaW9ucyI6W119.au3k1YitMTtevyCLAULkbj9XcdABvL3Lrt7MWJzUuhxOUxSGhvVP4VLz2FmSq9KZwdV6GPEMXF2B8AS-XuQ9B0vQ-34jHe3Ehka6ta9I4mcLPQD8CvNuhXm28IjyZ0jAgQ_1xS39s7uZbChDJk9f1dIzI-KbS0G40ymGimKdK0SBPdUvyH7UXhnWgPsqMHTrcPKjXwmt6FdxIrEOvo4UW34NXB2NbQy1Eeg6Ywo4LSwTGUYbN_7hkJhkdwuX4DbpjtmIIv39qkE9ixxhkYNNsP2oQZ6EAmZBak4NmvMByetWF44ITpyfvddjuVXgKTUd2eqiFtmg6FXnffuTdp0zHA",
+                "x-user-email": "shreyesh@newsinbullets.app"
+            },
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": form
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    </script>
+</body>
+
+</html>
+
