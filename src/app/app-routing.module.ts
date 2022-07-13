@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { Routes } from '@angular/router';
-
-
-// const routes: Routes = [
-//   { path : 'sources', component : SourcesComponent },
-// ];
-
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () => import('../pages/dashboard/dashboard.module').then( m => m.DashboardModule)
+  },
+  {
+    path: 'source',
+    loadChildren: () => import('../pages/source/source.module').then( m => m.SourceModule)
+  }
+];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
