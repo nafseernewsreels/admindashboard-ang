@@ -8,9 +8,6 @@
 }
 
 
-
-
-
 h1,
 h2,
 h3,
@@ -114,6 +111,9 @@ svg.material-icons:not(:last-child) {
   height: 16px;
   width: 168px;
 }
+
+
+
 
 .card-container .card:not(.highlight-card) {
   cursor: pointer;
@@ -266,6 +266,7 @@ svg#clouds {
   width: 1920px;
 }
 
+
 /* Responsive Styles */
 @media screen and (max-width: 767px) {
   .card-container > *:not(.circle-link) ,
@@ -350,6 +351,8 @@ table {
   .fullscreen-dialog {
     max-width: 100% !important;
   }
+
+
 
 table {
     width: 100%;
