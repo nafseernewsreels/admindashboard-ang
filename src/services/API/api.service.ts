@@ -12,6 +12,8 @@ export class APIService {
   engine = "engine/"
   source = "sources/"
   article = "article/"
+  categories = "categories/"
+ 
   constructor(private http: HttpClient) { }
 
   getSourceData(pageSize: number, pageNo: number): Observable<any> {
@@ -37,6 +39,22 @@ export class APIService {
   getArticleClass(source:string): Observable<any> {
     let params = new HttpParams().set("source", source)
     return this.http.get(`${this.baseURL}${this.engine}${this.article}get_article_classes`,{params: params});
+  }
+
+  updateCategory(id:string, data: any): Observable<any> {
+    return this.http.patch(`${this.baseURL}${this.admin}${this.categories}${id}`, data);
+  }
+
+  getCategory(id:string): Observable<any> {
+    return this.http.get(`${this.baseURL}${this.admin}${this.categories}${id}`);
+  }
+  deleteCategory(id:string): Observable<any> {
+    return this.http.delete(`${this.baseURL}${this.admin}${this.categories}${id}`);
+  }
+
+  searchSource(searchKey: string){
+    let data = {req: {keyword: searchKey, index_type: "sources"}, sort: []}
+    return this.http.post(`${this.baseURL}${this.admin}search`, data);
   }
 
 }

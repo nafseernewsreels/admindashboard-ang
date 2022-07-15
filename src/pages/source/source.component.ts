@@ -6,6 +6,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { SourceViewDialogComponent } from './components/source-view-dialog/source-view-dialog.component';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { ArticleViewDialogComponent } from './components/article-view-dialog/article-view-dialog.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -27,17 +28,18 @@ export class SourceComponent implements AfterViewInit, OnInit {
   currentPage = 0;
   pageSizeOptions: number[] = [10, 25, 100];
   categories = ([] as any[]);
+  searchKey = ""
 
 
 
-
-  displayedColumns: string[] = ['name', 'noOfArticles', 'edition', 'status','follower', 'category' ];
+  displayedColumns: string[] = ['name', 'noOfArticles', 'edition', 'status','follower' ];
   columnsToDisplayWithExpand = [...this.displayedColumns ];
   expandedElement: any | null;
   dataSource = new MatTableDataSource<any>([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-constructor(private apiService : APIService, public dialog: MatDialog){
+constructor(private apiService : APIService, public dialog: MatDialog,
+  private router: Router){
 
 }
 ngAfterViewInit() {
@@ -66,12 +68,16 @@ loadData() {
 }
 
 sourceView(sourceData: any): void {
-  this.dialog.open(SourceViewDialogComponent, {
-    data: sourceData,
-    panelClass: 'fullscreen-dialog',
+  this.router.navigate(
+    ['/source/sourcedetail'],
+    { queryParams: sourceData }
+  );
+  // this.dialog.open(SourceViewDialogComponent, {
+  //   data: sourceData,
+  //   panelClass: 'fullscreen-dialog',
 
-        width: '100%'
-  });
+  //       width: '100%'
+  // });
 }
 getCategories(id: string){
   this.apiService.getCategories(id).subscribe((res) => {
@@ -97,7 +103,11 @@ pageChanged(event: PageEvent) {
   this.currentPage = event.pageIndex;
   this.loadData();
 }
-  
+searchSource(){
+  this.apiService.searchSource(this.searchKey).subscribe((res) => {
+
+  })
+}
 }
 
 

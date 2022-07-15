@@ -1,0 +1,96 @@
+<div class="mat-elevation-z8">
+    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element" (click)="sourceView(element)"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="noOfArticles">
+            <th mat-header-cell *matHeaderCellDef> No. of Articles </th>
+            <td mat-cell *matCellDef="let element" (click)="articleView(element.id)"> View </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="edition">
+            <th mat-header-cell *matHeaderCellDef> Edition </th>
+            <td mat-cell *matCellDef="let element" > <mat-icon aria-hidden="false" aria-label="Example note icon">note</mat-icon> </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-slide-toggle [(ngModel)]="element.enabled"></mat-slide-toggle>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="follower">
+            <th mat-header-cell *matHeaderCellDef> Follower </th>
+            <td mat-cell *matCellDef="let element"> 0 </td>
+        </ng-container>
+        <!-- <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef> Category </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button aria-label="expand row"
+                    (click)="getCategories(element.id); (expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+                    <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+                    <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+                </button>
+            </td>
+        </ng-container> -->
+        <!-- <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+                <div class="example-element-detail"
+                    [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                    <mat-grid-list cols="4"  >
+                        <mat-grid-tile 
+                        *ngFor="let category of categories"
+                        colspan="2"
+      rowspan="1">
+                           
+
+                                <form>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>ID</mat-label>
+                                        <input matInput placeholder="Placeholder" [value]="category?.id">
+                               
+                                      </mat-form-field>
+                                      <mat-form-field appearance="fill">
+                                        <mat-label>Article</mat-label>
+                                        <input matInput placeholder="Placeholder" [value]="category?.articles">
+                               
+                                      </mat-form-field>
+                                      <mat-form-field appearance="fill">
+                                        <mat-label>Name</mat-label>
+                                        <input matInput placeholder="Placeholder" [value]="category?.name">
+                               
+                                      </mat-form-field>
+                                      <mat-form-field appearance="fill">
+                                        <mat-label>Link</mat-label>
+                                        <input matInput placeholder="Placeholder" [value]="category?.link">
+                               
+                                      </mat-form-field>
+                                </form>
+                         
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                   
+                </div>
+            </td>
+        </ng-container> -->
+        <!-- <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+        <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;" class="example-element-row"
+            [class.example-expanded-row]="expandedElement === element"
+            (click)="expandedElement = expandedElement === element ? null : element">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr> -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+    </table>
+
+    <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage" [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page">
+    </mat-paginator>
+</div>

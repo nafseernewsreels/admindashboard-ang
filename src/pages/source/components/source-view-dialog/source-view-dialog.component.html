@@ -1,132 +1,248 @@
-<mat-dialog-content class="mat-typography">
-    <section class="example-section">
-        <mat-checkbox class="example-margin">Global</mat-checkbox>
-    </section>
-    <section>
-        <form class="example-form">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>Id</mat-label>
-                            <input class="inputnew" matInput placeholder="Placeholder" [value]="data.id">
-                        </mat-form-field>
-                    </div>
+<div class="toolbar" role="banner">
+    <img width="100" alt="Angular Logo" src="../../assets/newsreels.png" />
+    <span>Source</span>
+    <div class="spacer"></div>
 
-                    <div class="col">
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>Language</mat-label>
-                            <input class="inputnew" matInput placeholder="Placeholder" [value]="data.language">
-                        </mat-form-field>
-                    </div>
 
-                    <div class="col">
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>Name</mat-label>
-                            <input class="inputnew" matInput placeholder="Placeholder" [value]="data.name">
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>Priority</mat-label>
-                            <input class="inputnew" matInput placeholder="Placeholder" [value]="data.importance">
-                        </mat-form-field>
-                    </div>
+    <a href="" style="color: #fafafa; margin-right: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-house-door-fill"
+            viewBox="0 0 20 20">
+            <path
+                d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
+        </svg>
+        HOME
+    </a>
 
-                    <div class="col">
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>Link</mat-label>
-                            <input class="inputnew" matInput placeholder="Placeholder" [value]="data.link">
-                        </mat-form-field>
-                    </div>
+</div>
 
-                    <div class="col">
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>Color (Hex)</mat-label>
-                            <input class="inputnew" matInput placeholder="Placeholder" [value]="data.color">
-                        </mat-form-field>
-                    </div>
-                </div>
+<section style="background-color: azure;">
+    <div class="container pt-3">
+        <div class="row">
 
-                <div class="row">
-                    <div class="col">
-                        <img class="tile-image" [src]="data.image" alt="Place image title">
-                    </div>
-                    <div class="col">
-                        <img class="tile-icon" [src]="data.icon" alt="Place image title">
+        </div>
+    </div>
 
-                    </div>
-                </div>
-               
+    <div class="container pt-5 mt-5 pb-5" style="background-color:  rgba(255, 255, 255, 0.685); border-radius: 25px;">
+        <div class="row">
+            <div class="col">
+                <mat-checkbox class="example-margin">Global</mat-checkbox>
             </div>
-            
-           
+        </div>
 
-            <!-- <mat-grid-list cols="4" rowHeight="100px">
-                <mat-grid-tile colspan="2" rowspan="1">
-                    <mat-form-field appearance="fill">
-                        <mat-label>ID</mat-label>
-                        <input class="" matInput placeholder="Placeholder" [value]="data.id">
+        <div class="row">
+            <div class="col">
+                <form class="example-form">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Id</mat-label>
+                                    <input class="inputnew" matInput placeholder="Placeholder" [value]="data.id">
+                                </mat-form-field>
+                            </div>
 
-                    </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile colspan="2" rowspan="1">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Language</mat-label>
-                        <input matInput placeholder="Placeholder" [value]="data.language">
+                            <div class="col">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Language</mat-label>
+                                    <input class="inputnew" matInput placeholder="Placeholder" [value]="data.language">
+                                </mat-form-field>
+                            </div>
 
-                    </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile colspan="2" rowspan="1">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Name</mat-label>
-                        <input matInput placeholder="Placeholder" [value]="data.name">
+                            <div class="col">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Name</mat-label>
+                                    <input class="inputnew" matInput placeholder="Placeholder" [value]="data.name">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Priority</mat-label>
+                                    <input class="inputnew" matInput placeholder="Placeholder"
+                                        [value]="data.importance">
+                                </mat-form-field>
+                            </div>
 
-                    </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile colspan="2" rowspan="1">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Priority</mat-label>
-                        <input matInput placeholder="Placeholder" [value]="data.importance">
+                            <div class="col">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Link</mat-label>
+                                    <input class="inputnew" matInput placeholder="Placeholder" [value]="data.link">
+                                </mat-form-field>
+                            </div>
 
-                    </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile colspan="2" rowspan="1">
+                            <div class="col">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Color (Hex)</mat-label>
+                                    <input class="inputnew" matInput placeholder="Placeholder" [value]="data.color">
+                                </mat-form-field>
+                            </div>
+                        </div>
 
-                    <mat-form-field appearance="fill">
-                        <mat-label>Link</mat-label>
-                        <input matInput placeholder="Placeholder" [value]="data.link">
+                        <div class="row">
+                            <div class="col">
+                                <img class="tile-image" [src]="data.image" alt="Place image title">
+                            </div>
+                            <div class="col">
+                                <img class="tile-icon" [src]="data.icon" alt="Place image title">
 
-                    </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile colspan="2" rowspan="1">
+                            </div>
+                        </div>
 
-                    <mat-form-field appearance="fill">
-                        <mat-label>Color (Hex)</mat-label>
-                        <input matInput placeholder="Placeholder" [value]="data.color">
-
-                    </mat-form-field>
-
-                </mat-grid-tile>
-                <mat-grid-tile colspan="2" rowspan="4">
-                    <img class="tile-image" [src]="data.image" alt="Place image title">
-                </mat-grid-tile>
-                <mat-grid-tile colspan="2" rowspan="4">
-                    <img class="tile-icon" [src]="data.icon" alt="Place image title">
-                </mat-grid-tile>
-
-            </mat-grid-list> -->
-
-
-
+                    </div>
 
 
-        </form>
-    </section>
-</mat-dialog-content>
 
-<mat-dialog-actions align="end">
-    <button class="btn btn-primary" mat-button (click)="articleview(data.id)" cdkFocusInitial>ARTICLE CLASS </button>
-</mat-dialog-actions>
+                    <!-- <mat-grid-list cols="4" rowHeight="100px">
+                        <mat-grid-tile colspan="2" rowspan="1">
+                            <mat-form-field appearance="fill">
+                                <mat-label>ID</mat-label>
+                                <input class="" matInput placeholder="Placeholder" [value]="data.id">
+        
+                            </mat-form-field>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan="2" rowspan="1">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Language</mat-label>
+                                <input matInput placeholder="Placeholder" [value]="data.language">
+        
+                            </mat-form-field>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan="2" rowspan="1">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Name</mat-label>
+                                <input matInput placeholder="Placeholder" [value]="data.name">
+        
+                            </mat-form-field>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan="2" rowspan="1">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Priority</mat-label>
+                                <input matInput placeholder="Placeholder" [value]="data.importance">
+        
+                            </mat-form-field>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan="2" rowspan="1">
+        
+                            <mat-form-field appearance="fill">
+                                <mat-label>Link</mat-label>
+                                <input matInput placeholder="Placeholder" [value]="data.link">
+        
+                            </mat-form-field>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan="2" rowspan="1">
+        
+                            <mat-form-field appearance="fill">
+                                <mat-label>Color (Hex)</mat-label>
+                                <input matInput placeholder="Placeholder" [value]="data.color">
+        
+                            </mat-form-field>
+        
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan="2" rowspan="4">
+                            <img class="tile-image" [src]="data.image" alt="Place image title">
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan="2" rowspan="4">
+                            <img class="tile-icon" [src]="data.icon" alt="Place image title">
+                        </mat-grid-tile>
+        
+                    </mat-grid-list> -->
+
+
+
+
+
+                </form>
+            </div>
+        </div>
+
+        <div class="row pt-5">
+            <div class="col">
+                <button class="btn btn-primary" mat-button (click)="articleview(data.id)" cdkFocusInitial>ARTICLE CLASS
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container pt-5 mt-5">
+        <div class="row">
+            <table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+                <!-- Name Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> ID </th>
+                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="article">
+                    <th mat-header-cell *matHeaderCellDef> No. of Articles </th>
+                    <td mat-cell *matCellDef="let element"> {{element.articles}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="news">
+                    <th mat-header-cell *matHeaderCellDef> News and Features </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                
+                <ng-container matColumnDef="link">
+                    <th mat-header-cell *matHeaderCellDef> Link </th>
+                    <td mat-cell *matCellDef="let element"> {{element.link}} </td>
+                </ng-container>
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                    <td mat-cell *matCellDef="let element">
+                        <mat-slide-toggle [(ngModel)]="element.enabled"></mat-slide-toggle>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Actions </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button class="btn btn-danger" mat-icon-button aria-label="expand row" (click)="deleteCategory(element.id)">
+                            DELETE
+                        </button>
+                        <button class="btn btn-secondary" mat-icon-button aria-label="expand row" (click)="updateCategory(element)">
+                            UPDATE
+                        </button>
+
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="category">
+                    <th mat-header-cell *matHeaderCellDef> Category </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button aria-label="expand row"
+                            (click)="getCategory(element.id); (expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+                            <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+                            <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="expandedDetail" >
+                    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+                        <div class="example-element-detail"
+                            [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                            <app-category-expand *ngIf="category" [Category]="category" [headLineClass]="headLineClass">
+                            </app-category-expand>
+
+
+                        </div>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+                <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;" class="example-element-row"
+                    [class.example-expanded-row]="expandedElement === element"
+                    (click)="expandedElement = expandedElement === element ? null : element">
+                </tr>
+                <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+
+            </table>
+        </div>
+    </div>
+
+
+
+</section>
+

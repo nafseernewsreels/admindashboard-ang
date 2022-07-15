@@ -20,6 +20,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ArticleComponent } from './components/article/article.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { CategoryExpandComponent } from './components/category-expand/category-expand.component';
+import { CategoryUpdateComponent } from './components/category-update/category-update.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {MatRadioModule} from '@angular/material/radio';
     ArticleViewDialogComponent,
     EditionViewDialogComponent,
     EditionDialogueComponent,
-    ArticleComponent
+    ArticleComponent,
+    CategoryExpandComponent,
+    CategoryUpdateComponent
   ],
   imports: [
     CommonModule,
