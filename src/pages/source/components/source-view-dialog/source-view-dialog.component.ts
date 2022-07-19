@@ -9,7 +9,7 @@ import { CategoryUpdateComponent } from '../category-update/category-update.comp
 @Component({
   selector: 'app-source-view-dialog',
   templateUrl: './source-view-dialog.component.html',
-  styleUrls: ['./source-view-dialog.component.css'],
+  styleUrls: ['./source-view-dialog.component.css'], 
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),
@@ -20,6 +20,7 @@ import { CategoryUpdateComponent } from '../category-update/category-update.comp
 })
 export class SourceViewDialogComponent implements OnInit {
   data:any;
+  updateData: {name : string, link : string} = {name : '', link : ''}
   categories = ([] as any[]);
   headLineClass = ([] as any[]);
   category: any;
@@ -50,7 +51,11 @@ this.getCategories(this.data?.id)
   getCategories(id: string){
     this.apiService.getCategories(id).subscribe((res) => {
       console.log("res", res)
-      this.dataSource.data = res.data;
+      let data = res.data.map((eachData: any) => {
+        eachData.isEdit = false;
+        return eachData;
+      })
+      this.dataSource.data = data;
     // this.categories = res?.data;
     })
   }
@@ -64,17 +69,58 @@ this.getCategories(this.data?.id)
   }
 
 
-  updateCategory(category: any): void {
-    this.dialog.open(CategoryUpdateComponent, {
-      width: '500px',
-      data: category,
-    });
-  }
+  updateCategory(id: string): void {
+    // this.dialog.open(CategoryUpdateComponent, {
+    //   width: '500px',
+    //   data: category,
+    // });
+    console.log("idd", id)
+    let data =   this.dataSource.data;
+    data =  data.map(obj => {
+      if (obj.id === id) {
+        this.updateData.name = obj.name
+        this.updateData.link = obj.link
+        return {...obj, isEdit: true};
+      }else{
+        return {...obj, isEdit: false};
+      }
 
+    });
+    console.log("data", data)
+    this.dataSource.data = data
+  }
+  updateCategoryByID(id: string){
+    this.apiService.updateCategory(id, this.updateData).subscribe((res) => {
+      console.log("res", res)
+      let data =   this.dataSource.data;
+      data =  data.map(obj => {
+        if (obj.id === res.data.result.id) {
+          return {...obj, isEdit: false, name:res.data.result.name , link: res.data.result.link};
+        }else{
+          return {...obj, isEdit: false};
+        }
+  
+      });
+      console.log("data", data)
+      this.dataSource.data = data
+    })
+  }
+cancel(){
+  let data =   this.dataSource.data;
+ data = data.map((eachData: any) => {
+    eachData.isEdit = false;
+    return eachData;
+  })
+  this.dataSource.data = data
+}
   deleteCategory(id: string){
     this.apiService.deleteCategory(id).subscribe((res) => {
       console.log("response", res)
     })
+  }
+
+  onValueChage(event: any){
+    console.log(event)
   }
   
 }

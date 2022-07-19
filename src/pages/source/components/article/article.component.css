@@ -40,3 +40,7 @@ table {
 .tablenew {
     border-radius: 10px;
   }
+
+  .new {
+    background-color: aqua!important;
+  }

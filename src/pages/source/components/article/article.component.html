@@ -1,3 +1,9 @@
+<style>
+    .background-red {
+        background-color: red;
+    }
+</style>
+
 <body>
 
     <div class="container">
@@ -10,10 +16,19 @@
                 </svg>
                 HOME
             </div>
-            <div class="col-lg-11">
+            <div class="col-lg-9">
                 <h1 class="text-left newtext" style="font-size: 35px ;">Articles Class</h1>
             </div>
-            
+
+
+            <div class="col-lg-2">
+                
+                <a class="btn btn-primary" href="https://www.{{sourceDetails?.link}}">GO TO WEBSITE</a>
+                
+                
+
+                
+            </div>
 
         </div>
     </div>
@@ -138,16 +153,19 @@
                     <!--- Note that these columns can be defined in any order.
                           The actual rendered columns are set as a property on the row definition" -->
 
+
+
                     <!-- Position Column -->
                     <ng-container matColumnDef="classname">
                         <th mat-header-cell *matHeaderCellDef> Classname </th>
-                        <td mat-cell *matCellDef="let element"> {{element.classname}} </td>
+                        <td mat-cell *matCellDef="let element" ngclass="{'new': element.classname = positive}">
+                            {{element.classname}} </td>
                     </ng-container>
 
                     <!-- Name Column -->
                     <ng-container matColumnDef="class_type">
                         <th mat-header-cell *matHeaderCellDef> Class Type </th>
-                        <td mat-cell *matCellDef="let element"> {{element.class_type}} </td>
+                        <td mat-cell *matCellDef="let element" id="value_class"> {{element.class_type}} </td>
                     </ng-container>
 
                     <!-- Weight Column -->
@@ -172,3 +190,5 @@
 
     </div>
 </body>
+
+

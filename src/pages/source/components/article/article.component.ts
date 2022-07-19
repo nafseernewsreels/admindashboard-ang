@@ -12,6 +12,8 @@ export class ArticleComponent implements OnInit {
   sourceDetails: any;
   tags: any;
   displayedColumns: string[] = ['classname', 'class_type', 'identifier', 'enabled' ];
+  positive = 1;
+  negative = 0;
   dataSource = new MatTableDataSource<any>([]);
   constructor(private apiService: APIService, private activatedRoute: ActivatedRoute) { }
 
@@ -43,4 +45,10 @@ this.tags = res?.tags;
     
   
   }
+
+  openlink(link:any){  window.open(link, '_blank');  }
+
+  // openlink(link:any){  window.open(this.sourceDetails?.link, '_blank');  }
 }
+
+
