@@ -12,13 +12,13 @@ import { MatSortModule } from '@angular/material/sort';
 export class ArticleComponent implements OnInit {
   sourceDetails: any;
   tags: any;
-  // displayedColumns: string[] = ['classname', 'class_type', 'identifier', 'enabled'];
-  displayedColumns = ['classname', 'class_type', 'identifier', 'enabled'];
-  dataSource !: MatTableDataSource<any>;
+  displayedColumns: string[] = ['classname', 'class_type', 'identifier', 'enabled'];
+  // displayedColumns = ['classname', 'class_type', 'identifier', 'enabled'];
+  // dataSource !: MatTableDataSource<any>;
 
   positive = 1;
   negative = 0;
-  // dataSource = new MatTableDataSource<any>([]);
+  dataSource = new MatTableDataSource<any>([]);
 
   @ViewChild(MatSort) matSort!: MatSort;
 
@@ -67,6 +67,10 @@ export class ArticleComponent implements OnInit {
   }
 
   openlink(link: any) { window.open(link, '_blank'); }
+
+  goToLink(url: string){
+    window.open(url, "_blank");
+}
 
   // openlink(link:any){  window.open(this.sourceDetails?.link, '_blank');  }
 }

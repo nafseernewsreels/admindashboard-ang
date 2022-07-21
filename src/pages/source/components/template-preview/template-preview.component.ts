@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
+
 import { FormBuilder } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 import { APIService } from 'src/services/API/api.service';
@@ -10,6 +13,8 @@ import { APIService } from 'src/services/API/api.service';
 })
 export class TemplatePreviewComponent implements OnInit {
   @Input() sourceID: string = '';
+  sourceDetails: any;
+  dataSource = new MatTableDataSource<any>([]);
 
   dataLinks = [];
   templatesNames= ([] as any[]);
@@ -17,7 +22,7 @@ export class TemplatePreviewComponent implements OnInit {
 templateArray = ([] as any[]);
 isTemplateLoading = false;
 urlTemplate = '';
-  constructor(private _formBuilder: FormBuilder, private apiService: APIService) {}
+  constructor(private _formBuilder: FormBuilder, private apiService: APIService,private activatedRoute: ActivatedRoute) {}
   ngOnInit(): void {
     this.apiService.getListofTemplates().subscribe((res) => {
       this.templatesNames = res?.templates;
@@ -29,6 +34,17 @@ urlTemplate = '';
     })
     this.apiService.getSourceArticleLink(this.sourceID).subscribe((res) => {
       this.dataLinks = res?.data?.result
+    })
+
+
+    this.activatedRoute.queryParams.subscribe((params) => {
+      if (params && params['id']) {
+        this.loadData(params['id']);
+      }
+    });
+
+    this.apiService.getSourceDetails('id').subscribe((res:any) => {
+      this.dataSource = new MatTableDataSource(res);
     })
 
   }
@@ -62,7 +78,27 @@ urlTemplate = '';
       this.isTemplateLoading = false;
       console.log("this.templateArray", this.templateArray)
     })
+
     //this.apiService.getSourceTemplatePreview()
+
+
+  }
+
+
+  loadData(id: string) {
+    this.apiService.getSourceDetails(id).subscribe((res) => {
+      this.sourceDetails = res?.data?.result;
+
+      this.apiService.getArticleClass(this.sourceDetails?.link).subscribe((res) => {
+        console.log("response", res)
+
+        this.dataSource.data = res.classes;
+
+      })
+      
+    })
+
+
   }
 
 }
