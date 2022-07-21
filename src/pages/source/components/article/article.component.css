@@ -42,10 +42,13 @@ table {
   }
 
   .new {
-    background-color: aqua!important;
+    background: green;
   }
 
-  .background-green {
-    background-color: green!important;
-    font-size: 25px!important;
+  .red2 {
+    background: #d56a6ab8;
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
   }

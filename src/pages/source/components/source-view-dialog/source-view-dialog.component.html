@@ -272,5 +272,9 @@
     </div>
 
 
-
+<div class="container  mt-5" *ngIf="data">
+    <app-template-preview [sourceID]="data?.id"></app-template-preview>
+</div>
 </section>
+
+

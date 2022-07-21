@@ -108,6 +108,10 @@ searchSource(){
 
   })
 }
+
+filterData($event : any){
+  this.dataSource.filter = $event.target.value;
+}
 }
 
 

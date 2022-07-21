@@ -22,6 +22,8 @@ import { ArticleComponent } from './components/article/article.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { CategoryExpandComponent } from './components/category-expand/category-expand.component';
 import { CategoryUpdateComponent } from './components/category-update/category-update.component';
+import { TemplatePreviewComponent } from './components/template-preview/template-preview.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { CategoryUpdateComponent } from './components/category-update/category-u
     EditionDialogueComponent,
     ArticleComponent,
     CategoryExpandComponent,
-    CategoryUpdateComponent
+    CategoryUpdateComponent,
+    TemplatePreviewComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +52,8 @@ import { CategoryUpdateComponent } from './components/category-update/category-u
     MatInputModule,
     MatGridListModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatCardModule
   ]
 })
 export class SourceModule { }

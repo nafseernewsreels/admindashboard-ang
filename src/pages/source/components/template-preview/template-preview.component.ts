@@ -1,0 +1,68 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { forkJoin } from 'rxjs';
+import { APIService } from 'src/services/API/api.service';
+
+@Component({
+  selector: 'app-template-preview',
+  templateUrl: './template-preview.component.html',
+  styleUrls: ['./template-preview.component.css']
+})
+export class TemplatePreviewComponent implements OnInit {
+  @Input() sourceID: string = '';
+
+  dataLinks = [];
+  templatesNames= ([] as any[]);
+  selectedTemplateNames = [];
+templateArray = ([] as any[]);
+isTemplateLoading = false;
+urlTemplate = '';
+  constructor(private _formBuilder: FormBuilder, private apiService: APIService) {}
+  ngOnInit(): void {
+    this.apiService.getListofTemplates().subscribe((res) => {
+      this.templatesNames = res?.templates;
+        this.templatesNames =    this.templatesNames.map(obj => {
+
+          return {...obj, isChecked: true};
+       
+      });
+    })
+    this.apiService.getSourceArticleLink(this.sourceID).subscribe((res) => {
+      this.dataLinks = res?.data?.result
+    })
+
+  }
+
+  preview(){
+    this.isTemplateLoading = true;
+    // let apis = [];
+    // let params = [];
+    // for(let link of this.dataLinks){
+      let selectedTemplateNames = {templates_names:([] as any[]), url: '' }
+    selectedTemplateNames.templates_names = this.templatesNames.map((tempName: any) => {
+      if(tempName.isChecked){
+        return tempName?.value
+      }
+    })
+      selectedTemplateNames.url = this.urlTemplate;
+    //  params.push(selectedTemplateNames)
+    // }
+    // for(let param of params){
+    //   apis.push(this.apiService.getSourceTemplatePreview(param))
+    // }
+   
+    // console.log("apis", apis)
+    // forkJoin(
+    //   apis
+    // )
+    this.apiService.getSourceTemplatePreview(selectedTemplateNames).subscribe((res) => {
+      console.log("res", res)
+        console.log("res", res.articles)
+        this.templateArray = [...res.articles];
+      this.isTemplateLoading = false;
+      console.log("this.templateArray", this.templateArray)
+    })
+    //this.apiService.getSourceTemplatePreview()
+  }
+
+}

@@ -5,6 +5,9 @@ import { HttpAuthInterceptor } from 'src/services/auth.interceptors';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSortable } from '@angular/material/sort';
+import {MatSortModule} from '@angular/material/sort';
+
 
 
 @NgModule({
@@ -13,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,AppRoutingModule, BrowserAnimationsModule
+    HttpClientModule,AppRoutingModule, BrowserAnimationsModule,
+    MatSortModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true }

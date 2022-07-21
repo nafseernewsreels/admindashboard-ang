@@ -13,6 +13,7 @@ export class APIService {
   source = "sources/"
   article = "article/"
   categories = "categories/"
+  artclesListLink = "articles/list/link"
  
   constructor(private http: HttpClient) { }
 
@@ -55,6 +56,19 @@ export class APIService {
   searchSource(searchKey: string){
     let data = {req: {keyword: searchKey, index_type: "sources"}, sort: []}
     return this.http.post(`${this.baseURL}${this.admin}search`, data);
+  }
+
+  getSourceTemplatePreview(data:any): Observable<any> {
+    return this.http.post(`${this.baseURL}${this.engine}${this.article}comparefullarticletemplates`,data);
+  }
+
+  getSourceArticleLink(sourceid:string): Observable<any> {
+    let params = new HttpParams().set("sourceid", sourceid)
+    return this.http.get(`${this.baseURL}${this.admin}${this.artclesListLink}`,{params: params});
+  }
+
+  getListofTemplates(): Observable<any> {
+    return this.http.get(`${this.baseURL}${this.engine}${this.article}listalltemplates`);
   }
 
 }

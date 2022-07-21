@@ -20,15 +20,15 @@
 <div class="container pt-5 mt-5">
     <div class="row">
         <div class="col-lg-3">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <input matInput placeholder="Search*" [(ngModel)]="searchKey">
-            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="search" autocomplete="off" (keyup)="filterData($event)">  
+              </mat-form-field>
 
         </div>
 
-        <div class="col-lg-3">
+        <!-- <div class="col-lg-3">
             <button class="btn btn-secondary" (click)="searchSource()">SUBMIT</button>
-        </div>
+        </div> -->
     </div>
 </div>
 
