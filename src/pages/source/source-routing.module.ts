@@ -12,10 +12,6 @@ const routes: Routes = [
   {
     path: 'sourcedetail',
     component: SourceViewDialogComponent
-  },
-  {
-    path: 'article',
-    component: ArticleComponent
   }
 ];
 

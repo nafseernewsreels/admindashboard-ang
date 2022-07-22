@@ -20,10 +20,14 @@
             <section>
                 <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
                     <mat-label>Enter the Link</mat-label>
-                    <input class="inputnew" style="width: 100%;" matInput placeholder="Placeholder" [(ngModel)]="urlTemplate" required>
+                    <input class="inputnew" style="width: 100%;" id="redirect_link" matInput placeholder="Placeholder" [(ngModel)]="urlTemplate" required>
                     <div class="row">
                         <div class="col">
-                            <button class="btn btn-primary" style="height: 35px;">GO TO LINK</button>
+                            <a [href]="urlTemplate" target="_blank">
+
+                                <button class="btn btn-primary" style="height: 35px;">GO TO LINK</button>
+                            </a>
+                            
 
                         </div>
                     </div>
@@ -31,7 +35,7 @@
             </section>
             <section class="example-section" >
                 
-                <mat-checkbox  *ngFor="let tempName of templatesNames" [checked]="tempName.isChecked">{{tempName?.name}}</mat-checkbox>
+                <mat-checkbox  *ngFor="let tempName of templatesNames" [(ngModel)]="tempName.isChecked">{{tempName?.name}}</mat-checkbox>
                 <!-- <mat-checkbox formControlName="script1">Script1</mat-checkbox>
                 <mat-checkbox formControlName="script2">Script2</mat-checkbox>
                 <mat-checkbox formControlName="script2js">Script2JS</mat-checkbox> -->
@@ -47,17 +51,23 @@
         <div class="col">
             <div class="row">
                 <div class="col-lg-6">
+
                     <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
                         <mat-label>Current Template</mat-label>
-                        <input class="inputnew" matInput placeholder="Placeholder" >
+                        <input class="inputnew" matInput placeholder="Current Template" >
                     </mat-form-field>
                 </div>
     
                 <div class="col-lg-6">
                     <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
                         <mat-label>Source Template</mat-label>
-                        <input class="inputnew" matInput placeholder="Placeholder" >
-                    </mat-form-field>
+                        <mat-select>
+                          <mat-option *ngFor="let tempName of templatesNames" [value]="tempName.value">
+                            {{tempName.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+ 
                 </div>
                 <section class="pb-3 pt-3">
                     <button class="btn btn-secondary">UPDATE SOURCE TEMPLATE</button>
@@ -70,26 +80,26 @@
     
     <mat-progress-bar class="pt-3 pb-3" mode="indeterminate" *ngIf="isTemplateLoading"></mat-progress-bar>
     <div class="row" *ngIf="templateArray.length > 0 && !isTemplateLoading">
-        <div class="col-3" *ngFor="let template of templateArray">
+        <div class="col-4" *ngFor="let template of templateArray">
             <mat-card>
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <p style="font-weight: 400;">Template :</p>   {{template.template_name}}
+                            <p style="font-weight: 800;">Template :</p>  <span style="font-style: italic;">{{template.template_name}}</span> 
                         </div>
                     </div>
                 </div>
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <p style="font-weight: 400;">Headline :</p>   {{template.headline}}
+                            <p style="font-weight: 800;">Headline :</p>  <span style="font-style: italic;font-weight: 500;"> {{template.headline}}</span>
                         </div>
                     </div>
                 </div>
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <p style="font-weight: 400;">Articles :</p><p *ngFor="let article of template.fullArticle">
+                            <p style="font-weight: 800;">Articles :</p><p *ngFor="let article of template.fullArticle">
                                 {{article}}>
 
                             </p>
@@ -100,7 +110,8 @@
                     <div class="row">
                         <div class="col">
                             <div class="col">
-                                <p style="font-weight: 400;">Image :</p>   {{template.image}}
+                                <p style="font-weight: 400;">Image :</p>   
+                                <img class="tile-image" [src]="template.imageURL" style="width: 100%;" alt="Place image title">
                             </div>
                         </div>
                     </div>
@@ -121,3 +132,8 @@
     </div>
 
 </div>
+
+<script>
+   var newdata = document.getElementById("redirect_link");
+   console.log(newdata);
+</script>

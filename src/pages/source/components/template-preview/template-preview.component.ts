@@ -55,11 +55,12 @@ urlTemplate = '';
     // let params = [];
     // for(let link of this.dataLinks){
       let selectedTemplateNames = {templates_names:([] as any[]), url: '' }
-    selectedTemplateNames.templates_names = this.templatesNames.map((tempName: any) => {
+    let test = this.templatesNames.map((tempName: any) => {
       if(tempName.isChecked){
         return tempName?.value
       }
     })
+    selectedTemplateNames.templates_names = test.filter((e) => e)
       selectedTemplateNames.url = this.urlTemplate;
     //  params.push(selectedTemplateNames)
     // }

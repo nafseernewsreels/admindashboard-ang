@@ -71,4 +71,8 @@ export class APIService {
     return this.http.get(`${this.baseURL}${this.engine}${this.article}listalltemplates`);
   }
 
+
+  updateArticleClass(data: any): Observable<any> {
+    return this.http.put(`${this.baseURL}${this.engine}${this.article}update_article_classes`, data);
+  }
 }

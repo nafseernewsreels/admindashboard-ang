@@ -122,12 +122,12 @@
             </div>
         </div>
 
-        <div class="row pt-5">
+        <!-- <div class="row pt-5">
             <div class="col">
                 <button class="btn btn-primary" mat-button (click)="articleview(data.id)" cdkFocusInitial>ARTICLE CLASS
                 </button>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="container pt-5 pb-2">
@@ -278,7 +278,9 @@
             </div>
         </div>
     </div>
-    
+    <div>
+        <app-article [sourceID]="data?.id"></app-article>
+    </div>
 
 <div class="container  mt-5" *ngIf="data">
     <app-template-preview [sourceID]="data?.id"></app-template-preview>

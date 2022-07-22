@@ -24,6 +24,9 @@ import { CategoryExpandComponent } from './components/category-expand/category-e
 import { CategoryUpdateComponent } from './components/category-update/category-update.component';
 import { TemplatePreviewComponent } from './components/template-preview/template-preview.component';
 import {MatCardModule} from '@angular/material/card';
+import { MatSortModule } from '@angular/material/sort';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ import {MatCardModule} from '@angular/material/card';
     MatGridListModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatCardModule
+    MatCardModule,
+    MatSortModule,
+    MatSelectModule
   ]
 })
 export class SourceModule { }
