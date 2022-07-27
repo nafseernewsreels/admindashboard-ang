@@ -50,7 +50,7 @@
                     <!-- Name Column -->
                     <ng-container matColumnDef="name">
                         <th mat-header-cell *matHeaderCellDef> Name </th>
-                        <td mat-cell *matCellDef="let element" (click)="sourceView(element)"> {{element.name}} </td>
+                        <td mat-cell *matCellDef="let element" > {{element.name}} </td>
                     </ng-container>
     
                     <!-- Name Column -->
@@ -77,6 +77,13 @@
                     <ng-container matColumnDef="follower">
                         <th mat-header-cell *matHeaderCellDef> Follower </th>
                         <td mat-cell *matCellDef="let element"> 0 </td>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef>  </th>
+                        <td mat-cell *matCellDef="let element"> 
+                            <button (click)="sourceView(element, true)">Article Class</button>
+                            <button (click)="sourceView(element, false)">Headline Class</button>
+                             </td>
                     </ng-container>
                     <!-- <ng-container matColumnDef="category">
                 <th mat-header-cell *matHeaderCellDef> Category </th>

@@ -23,7 +23,7 @@
                     <input class="inputnew" style="width: 100%;" id="redirect_link" matInput placeholder="Placeholder" [(ngModel)]="urlTemplate" required>
                     <div class="row">
                         <div class="col">
-                            <a [href]="urlTemplate" target="_blank">
+                            <a href="">
 
                                 <button class="btn btn-primary" style="height: 35px;">GO TO LINK</button>
                             </a>
@@ -80,7 +80,7 @@
     
     <mat-progress-bar class="pt-3 pb-3" mode="indeterminate" *ngIf="isTemplateLoading"></mat-progress-bar>
     <div class="row" *ngIf="templateArray.length > 0 && !isTemplateLoading">
-        <div class="col-4" *ngFor="let template of templateArray">
+        <div class="col-3" *ngFor="let template of templateArray">
             <mat-card>
                 <div class="container">
                     <div class="row">

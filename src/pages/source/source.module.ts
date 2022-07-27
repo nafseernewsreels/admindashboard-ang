@@ -26,6 +26,9 @@ import { TemplatePreviewComponent } from './components/template-preview/template
 import {MatCardModule} from '@angular/material/card';
 import { MatSortModule } from '@angular/material/sort';
 import {MatSelectModule} from '@angular/material/select';
+import { ViewHeadlineClassComponent } from './components/view-headline-class/view-headline-class.component';
+import { ViewArticleClassComponent } from './components/view-article-class/view-article-class.component';
+import { HeadlinePreviewComponent } from './components/headline-preview/headline-preview.component';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import {MatSelectModule} from '@angular/material/select';
     ArticleComponent,
     CategoryExpandComponent,
     CategoryUpdateComponent,
-    TemplatePreviewComponent
+    TemplatePreviewComponent,
+    ViewHeadlineClassComponent,
+    ViewArticleClassComponent,
+    HeadlinePreviewComponent
   ],
   imports: [
     CommonModule,

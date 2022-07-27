@@ -1,0 +1,116 @@
+
+
+<div class="container pt-4">
+    <h1 style="font-weight: 500">HEADLINE PREVIEW</h1>
+    <div class="row">
+        <!-- <div class="col">
+            <button mat-stroked-button class="btn btn-primary" *ngFor="let tempName of templatesNames" style="margin-right: 10px;" >{{tempName?.name}}</button>
+
+        </div> -->
+        <div class="col">
+            <section>
+                <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                    <mat-label>Enter the Link</mat-label>
+                    <input class="inputnew" style="width: 100%;" id="redirect_link" matInput placeholder="Placeholder"
+                        [(ngModel)]="urlTemplate" required>
+                    <div class="row">
+                        <div class="col">
+                            <a href="">
+
+                                <button class="btn btn-primary" style="height: 35px;">GO TO LINK</button>
+                            </a>
+
+
+                        </div>
+                    </div>
+                </mat-form-field>
+            </section>
+            <section class="example-section">
+
+                <mat-checkbox *ngFor="let tempName of templatesNames" [(ngModel)]="tempName.isChecked">
+                    {{tempName?.name}}</mat-checkbox>
+                <!-- <mat-checkbox formControlName="script1">Script1</mat-checkbox>
+                <mat-checkbox formControlName="script2">Script2</mat-checkbox>
+                <mat-checkbox formControlName="script2js">Script2JS</mat-checkbox> -->
+            </section>
+
+
+            <section class="pt-3 pb-3">
+                <button class="btn btn-primary" [disabled]="urlTemplate == ''" (click)="preview()">Preview</button>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col-lg-6">
+
+                    <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                        <mat-label>Current Template</mat-label>
+                        <input class="inputnew" matInput placeholder="Current Template">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-6">
+                    <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                        <mat-label>Source Template</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let tempName of templatesNames" [value]="tempName.value">
+                                {{tempName.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                </div>
+                <section class="pb-3 pt-3">
+                    <button class="btn btn-secondary">UPDATE SOURCE TEMPLATE</button>
+                </section>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col">
+            <div class="mat-elevation-z8">
+                <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+                <table mat-table matSort [dataSource]="dataSource" multiTemplateDataRows>
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="article_link">
+                        <th mat-header-cell *matHeaderCellDef> Article Link </th>
+                        <td mat-cell *matCellDef="let element" > {{element.article_link}} </td>
+                    </ng-container>
+    
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="text">
+                        <th mat-header-cell mat-sort-header *matHeaderCellDef> Text </th>
+                        <td mat-cell *matCellDef="let element" > {{element.text}} </td>
+                    </ng-container>
+    
+ 
+    
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="belongs">
+                        <th mat-header-cell mat-sort-header *matHeaderCellDef> Belongs </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.belongs}}
+                            <!-- <mat-slide-toggle [(ngModel)]="element.enabled"></mat-slide-toggle> -->
+                        </td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                        [ngClass]="{'new': row.belongs=='true','red2': row.belongs=='false' }">
+                    </tr>
+
+                    
+                </table>
+
+            </div>
+        </div>
+    </div>
+   
+
+</div>

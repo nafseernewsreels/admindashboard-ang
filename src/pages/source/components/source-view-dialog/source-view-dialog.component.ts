@@ -20,6 +20,7 @@ import { CategoryUpdateComponent } from '../category-update/category-update.comp
 })
 export class SourceViewDialogComponent implements OnInit {
   data:any;
+  isArticle:boolean = false;
   updateData: {name : string, link : string} = {name : '', link : ''}
   categories = ([] as any[]);
   headLineClass = ([] as any[]);
@@ -28,6 +29,7 @@ export class SourceViewDialogComponent implements OnInit {
   columnsToDisplayWithExpand = [...this.displayedColumns ];
   expandedElement: any | null;
   dataSource = new MatTableDataSource<any>([]);
+  templatesNames= ([] as any[]);
   constructor(
     //public dialogRef: MatDialogRef<SourceViewDialogComponent>,
     //@Inject(MAT_DIALOG_DATA) public data: any,
@@ -38,6 +40,8 @@ export class SourceViewDialogComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((params) => {
       if(params ){
 this.data = params;
+this.isArticle = params['isArticle'] == 'true' ? true : false;;
+
 this.getCategories(this.data?.id)
       }
       });  
@@ -49,6 +53,14 @@ this.getCategories(this.data?.id)
     })
   }
   getCategories(id: string){
+    this.apiService.getListofTemplates().subscribe((res) => {
+      this.templatesNames = res?.templates;
+        this.templatesNames =    this.templatesNames.map(obj => {
+
+          return {...obj, isChecked: true};
+       
+      });
+    })
     this.apiService.getCategories(id).subscribe((res) => {
       console.log("res", res)
       let data = res.data.map((eachData: any) => {

@@ -32,7 +32,7 @@ export class SourceComponent implements AfterViewInit, OnInit {
 
 
 
-  displayedColumns: string[] = ['name', 'noOfArticles', 'edition', 'status','follower' ];
+  displayedColumns: string[] = ['name', 'noOfArticles', 'edition', 'status','follower' , 'action' ];
   columnsToDisplayWithExpand = [...this.displayedColumns ];
   expandedElement: any | null;
   dataSource = new MatTableDataSource<any>([]);
@@ -67,10 +67,12 @@ loadData() {
 
 }
 
-sourceView(sourceData: any): void {
+sourceView(sourceData: any, isArticle: boolean): void {
+  let data = sourceData;
+  data.isArticle = isArticle;
   this.router.navigate(
     ['/source/sourcedetail'],
-    { queryParams: sourceData }
+    { queryParams: data }
   );
   // this.dialog.open(SourceViewDialogComponent, {
   //   data: sourceData,

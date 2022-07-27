@@ -14,6 +14,8 @@ export class APIService {
   article = "article/"
   categories = "categories/"
   artclesListLink = "articles/list/link"
+  localhostUrl = "https://localhost:3000/"
+  articlelinks = "articlelinks/"
  
   constructor(private http: HttpClient) { }
 
@@ -74,5 +76,14 @@ export class APIService {
 
   updateArticleClass(data: any): Observable<any> {
     return this.http.put(`${this.baseURL}${this.engine}${this.article}update_article_classes`, data);
+  }
+
+  // getSourceHeadlinePreview(data:any): Observable<any> {
+  //   return this.http.post(`url`,data);
+  // }
+
+  getSourceHeadlinePreview(data:any): Observable<any> {
+    // let params = new HttpParams().set("sourceid", sourceid)
+    return this.http.post(`${this.localhostUrl}${this.artclesListLink}`,data);
   }
 }

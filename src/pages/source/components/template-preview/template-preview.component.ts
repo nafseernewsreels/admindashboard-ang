@@ -13,25 +13,19 @@ import { APIService } from 'src/services/API/api.service';
 })
 export class TemplatePreviewComponent implements OnInit {
   @Input() sourceID: string = '';
+  @Input() templatesNames= ([] as any[]);
   sourceDetails: any;
   dataSource = new MatTableDataSource<any>([]);
 
   dataLinks = [];
-  templatesNames= ([] as any[]);
+
   selectedTemplateNames = [];
 templateArray = ([] as any[]);
 isTemplateLoading = false;
 urlTemplate = '';
   constructor(private _formBuilder: FormBuilder, private apiService: APIService,private activatedRoute: ActivatedRoute) {}
   ngOnInit(): void {
-    this.apiService.getListofTemplates().subscribe((res) => {
-      this.templatesNames = res?.templates;
-        this.templatesNames =    this.templatesNames.map(obj => {
 
-          return {...obj, isChecked: true};
-       
-      });
-    })
     this.apiService.getSourceArticleLink(this.sourceID).subscribe((res) => {
       this.dataLinks = res?.data?.result
     })
