@@ -20,9 +20,14 @@ table {
   }
 
   .new {
-    background: green;
-  }
+font-size: 20px;
+font-weight: 500;
+color: green!important; 
+text-transform: uppercase; }
 
   .red2 {
-    background: #d56a6ab8;
+    font-size: 20px;
+    font-weight: 500;
+    color: red!important;
+    text-transform: uppercase;
   }

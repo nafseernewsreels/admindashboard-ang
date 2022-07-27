@@ -94,16 +94,22 @@
                     <!-- Symbol Column -->
                     <ng-container matColumnDef="belongs">
                         <th mat-header-cell mat-sort-header *matHeaderCellDef> Belongs </th>
-                        <td mat-cell *matCellDef="let element">
+                        <td mat-cell *matCellDef="let element" [ngClass]="element.belongs == true ? 'new' : 'red2'">
                             {{element.belongs}}
                             <!-- <mat-slide-toggle [(ngModel)]="element.enabled"></mat-slide-toggle> -->
                         </td>
                     </ng-container>
                 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                    [ngClass]="row.belongs == true ? 'new' : 'red2'">                        >
+                    </tr> -->
+
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-                        [ngClass]="{'new': row.belongs=='true','red2': row.belongs=='false' }">
+                    >                        >
                     </tr>
+
+                    
 
                     
                 </table>

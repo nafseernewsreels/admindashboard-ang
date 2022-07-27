@@ -14,8 +14,8 @@ export class APIService {
   article = "article/"
   categories = "categories/"
   artclesListLink = "articles/list/link"
-  localhostUrl = "https://localhost:3000/"
-  articlelinks = "articlelinks/"
+  localhostUrl = "http://localhost:3000/"
+  articlelinks = "articlelinks"
  
   constructor(private http: HttpClient) { }
 
@@ -84,6 +84,6 @@ export class APIService {
 
   getSourceHeadlinePreview(data:any): Observable<any> {
     // let params = new HttpParams().set("sourceid", sourceid)
-    return this.http.post(`${this.localhostUrl}${this.artclesListLink}`,data);
+    return this.http.post(`${this.localhostUrl}${this.articlelinks}`,data);
   }
 }
