@@ -16,6 +16,16 @@ export class APIService {
   artclesListLink = "articles/list/link"
   localhostUrl = "http://localhost:3000/"
   articlelinks = "articlelinks"
+  ngrokUrl = "https://4077-37-245-2-28.in.ngrok.io/analytics/"
+  scraper = "scraper"
+  extractor = "extractor/"
+  statuslist = "jobs/status/list/"
+  countjobs = "jobs/status/count/all/"
+  countjobsbyStatus = "jobs/status/count/"
+  channel_type_youtube = "channel_type=Youtube"
+  channel_type_instagram = "channel_type=instagram"
+
+
  
   constructor(private http: HttpClient) { }
 
@@ -86,4 +96,16 @@ export class APIService {
     // let params = new HttpParams().set("sourceid", sourceid)
     return this.http.post(`${this.localhostUrl}${this.articlelinks}`,data);
   }
+
+  getYoutubeScraperNumber(): Observable<any> {
+    return this.http.get(`${this.ngrokUrl}${this.scraper}?${this.channel_type_youtube}`);
+  }
+
+
+ 
+  // getScraperNumbers(channel_type: string, past_hours: number): Observable<any> {
+  //   let params = new HttpParams().set("channel_type", channel_type)
+  //   .set("past_hours", past_hours);
+  //   return this.http.get(`${this.ngrokUrl}${this.scraper}?`,{params: params});
+  // }
 }

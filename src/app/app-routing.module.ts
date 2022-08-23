@@ -9,7 +9,12 @@ const routes: Routes = [
   {
     path: 'source',
     loadChildren: () => import('../pages/source/source.module').then( m => m.SourceModule)
-  }
+  },
+  {
+    path: 'dashboard-reels',
+    loadChildren: () => import('../pages/dashboard-reels/dashboard-reels.module').then( m => m.DashboardReelsModule)
+  },
+
 ];
 
 @NgModule({

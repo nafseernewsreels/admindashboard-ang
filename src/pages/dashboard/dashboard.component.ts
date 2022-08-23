@@ -10,7 +10,7 @@ export class DashboardComponent implements OnInit {
 
   quickLinks = [
     {name: 'Sources', url : 'source'},
-    {name: 'Editions', url : ''},
+    {name: 'Dashboard', url : 'dashboard-reels'},
     {name: 'Articles', url : ''},
     {name: 'Topics', url : ''},
     {name: 'Location', url : ''},

@@ -1,0 +1,68 @@
+
+
+.heading-text1 {
+    font-size: 45px;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+
+}
+
+.youtube-logo {
+    width: 15%;
+}
+
+.instagram-logo {
+    width: 35%;
+}
+
+.youtube-logo-1 {
+    width: 20%;
+}
+.youtube-logo-2 {
+    width: 25%;
+}
+
+.instagram-logo-1    {
+    width: 40%;
+}
+.instagram-logo-2    {
+    width: 75%;
+}
+
+.newsreels-logo {
+    width: 40%;
+}
+
+
+.extracted_number {
+    font-size: 60px;
+    font-weight: 500;
+}
+
+.extracted_number_1 {
+    font-size: 40px
+}
+
+.extracted_number_2 {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.vl {
+    border-left: 2px solid green;
+    height: 100px;
+  }
+
+select {
+    padding:5px 15px;
+    margin: 20px;
+    background: #001739;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  }
+  
+
+.table-inner-text {
+    font-size: 18px; 
+    font-weight : 500;
+}

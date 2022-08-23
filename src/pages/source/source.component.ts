@@ -24,9 +24,9 @@ import { Router } from '@angular/router';
 export class SourceComponent implements AfterViewInit, OnInit {
   isLoading = false;
   totalRows = 0;
-  pageSize = 10;
+  pageSize = 50;
   currentPage = 0;
-  pageSizeOptions: number[] = [10, 25, 100];
+  pageSizeOptions: number[] = [10, 50, 100];
   categories = ([] as any[]);
   searchKey = ""
 
@@ -61,15 +61,17 @@ loadData() {
             this.dataSource.data = res.data.result;
         this.paginator.pageIndex = this.currentPage ;
         this.paginator.length = res.data.total_page;
+        this.totalRows = res.data.total_page;
       });
     this.isLoading = false;
   })
 
 }
 
-sourceView(sourceData: any, isArticle: boolean): void {
+sourceView(sourceData: any, isArticle: boolean, viewAll: boolean): void {
   let data = sourceData;
   data.isArticle = isArticle;
+  data.viewAll = viewAll;
   this.router.navigate(
     ['/source/sourcedetail'],
     { queryParams: data }

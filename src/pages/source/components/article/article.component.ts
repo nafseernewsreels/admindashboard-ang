@@ -63,7 +63,7 @@ export class ArticleComponent implements OnInit {
         console.log("response", res)
 
         this.dataSource.data = res.classes;
-        this.selectedRow = this.dataSource.data[0]
+        //this.selectedRow = this.dataSource.data[0]
         this.dataSource.sort = this.sort;
 
       })
@@ -92,6 +92,12 @@ this.selectedRow = row;
 this.apiService.updateArticleClass(this.selectedRow).subscribe((res) => {
   console.log("res", res)
 })
+  }
+
+  addArticleClass(){
+    this.apiService.updateArticleClass(this.selectedRow).subscribe((res) => {
+      console.log("res", res)
+    })
   }
 }
 

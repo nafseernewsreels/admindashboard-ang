@@ -81,9 +81,9 @@
                     <ng-container matColumnDef="action">
                         <th mat-header-cell *matHeaderCellDef>  </th>
                         <td mat-cell *matCellDef="let element"> 
-                            <button class="btn btn-primary" style="margin-right: 2px;" (click)="sourceView(element, true)">Article Class</button>
-                            <button class="btn btn-primary" style="margin-right: 2px;" (click)="sourceView(element, false)">Headline Class</button>
-                            <button class="btn btn-secondary">View All</button>
+                            <button class="btn btn-primary" style="margin-right: 2px;" (click)="sourceView(element, true, false)">Article Class</button>
+                            <button class="btn btn-primary" style="margin-right: 2px;" (click)="sourceView(element, false, false)">Headline Class</button>
+                            <button class="btn btn-secondary" (click)="sourceView(element, true, true)">View All</button>
                              </td>
                     </ng-container>
                     <!-- <ng-container matColumnDef="category">

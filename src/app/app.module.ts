@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSortable } from '@angular/material/sort';
 import {MatSortModule} from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table'  
+
 
 
 
@@ -17,7 +19,8 @@ import {MatSortModule} from '@angular/material/sort';
   imports: [
     BrowserModule,
     HttpClientModule,AppRoutingModule, BrowserAnimationsModule,
-    MatSortModule
+    MatSortModule,MatTableModule
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true }
